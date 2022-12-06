@@ -1,0 +1,21 @@
+name: Deployment Workflow
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing lexorrr.com server ssh connection
+        uses: root/ssh-action@main
+        with:
+          host: lexorrr.com
+          username: root
+          key: ${{ secrets.REACT_ACTIONS_SECRET }}
+          port: 22
+          script: |
+            cd react-test-github-actions
+            git pull origin main
+            git status
