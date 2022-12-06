@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: testing lexorrr.com server ssh connection
-        uses: root/ssh-action@main
+        uses: appleboy/ssh-action@main
         with:
           host: lexorrr.com
           username: root
