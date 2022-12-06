@@ -19,6 +19,6 @@ jobs:
           script: |
             cd react-test-github-actions
             git pull origin main
-            yarn
-            yarn build
-            cp -r dist/ deploy/
+            npm install
+            npm run build
+            cp -r dist/ /root/deploy/
