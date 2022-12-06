@@ -11,7 +11,7 @@ jobs:
       - name: testing lexorrr.com server ssh connection
         uses: appleboy/ssh-action@master
         with:
-          host: lexorrr.com
+          host: 139.162.60.123
           username: root
           key: ${{ secrets.REACT_ACTIONS_SECRET }}
           port: 22
