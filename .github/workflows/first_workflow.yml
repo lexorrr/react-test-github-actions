@@ -13,18 +13,17 @@ jobs:
       - name: testing lexorrr.com server ssh connection
         uses: appleboy/ssh-action@master
         with:
-          host: 139.162.60.123
-          username: root
-          # passphrase: fatbox123$$
+          host: ${{ secrets.REACT_ACTIONS_HOST }}
+          username: ${{ secrets.REACT_ACTIONS_USERNAME }}
+          passphrase: ${{ secrets.REACT_ACTIONS_PASSWORD }}
           key: ${{ secrets.REACT_ACTIONS_SECRET }}
           port: 22
           script: |
             cd react-test-github-actions
             git pull origin main
-            git status
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# npm install
-# npm run build
-# rm -rf /var/www/html/dist/
-# cp -r dist/ /var/www/html/
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            npm install
+            npm run build
+            rm -rf /var/www/html/dist/
+            cp -r dist/ /var/www/html/

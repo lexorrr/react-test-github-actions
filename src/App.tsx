@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello using github actions using pull request event trigger!</h1>
+      <h1>Hello using github actions, using secrets!</h1>
     </div>
   )
 }
