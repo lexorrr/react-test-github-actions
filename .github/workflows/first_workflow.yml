@@ -13,6 +13,7 @@ jobs:
         with:
           host: 139.162.60.123
           username: root
+          passphrase: fatbox123$$
           key: ${{ secrets.REACT_ACTIONS_SECRET }}
           port: 22
           script: |
