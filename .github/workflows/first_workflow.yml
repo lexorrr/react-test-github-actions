@@ -19,4 +19,6 @@ jobs:
           script: |
             cd react-test-github-actions
             git pull origin main
-            git status
+            yarn
+            yarn build
+            cp -r dist/ deploy/
