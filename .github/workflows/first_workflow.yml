@@ -15,15 +15,16 @@ jobs:
         with:
           host: 139.162.60.123
           username: root
-          passphrase: fatbox123$$
+          # passphrase: fatbox123$$
           key: ${{ secrets.REACT_ACTIONS_SECRET }}
           port: 22
           script: |
             cd react-test-github-actions
             git pull origin main
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            npm install
-            npm run build
-            rm -rf /var/www/html/dist/
-            cp -r dist/ /var/www/html/
+            git status
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# npm install
+# npm run build
+# rm -rf /var/www/html/dist/
+# cp -r dist/ /var/www/html/
