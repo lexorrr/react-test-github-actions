@@ -52,21 +52,13 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        onClick={async () =>
-          await sendEventToSheet("Users", "register", "TEST")
-        }
-      >
+      <button onClick={() => sendEventToSheet("Users", "register", "TEST")}>
         Register
       </button>
-      <button
-        onClick={async () => await sendEventToSheet("Users", "login", "TEST")}
-      >
+      <button onClick={() => sendEventToSheet("Users", "login", "TEST")}>
         Login
       </button>
-      <button
-        onClick={async () => await sendEventToSheet("Users", "click", "TEST")}
-      >
+      <button onClick={() => sendEventToSheet("Users", "click", "TEST")}>
         Click
       </button>
     </div>
