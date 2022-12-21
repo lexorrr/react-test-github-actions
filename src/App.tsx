@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import ReactGA from "react-ga4";
-
+ReactGA.initialize("G-KF7V1HWCB0");
 function App() {
   useEffect(() => {
-    ReactGA.initialize("G-KF7V1HWCB0");
-
     ReactGA.send("pageview");
     // ReactGA.send({ hitType: "pageview", page: "/" });
 
