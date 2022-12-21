@@ -1,15 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import ReactGA from "react-ga4";
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    ReactGA.initialize("G-65MFDJFJRX");
+
+    ReactGA.send("pageview");
+    ReactGA.send({ hitType: "pageview", page: "/" });
+
+    // ReactGA.pageview(window.location.pathname + window.location.search);
+    
+  }, []);
+
+  const event = (category: string, action: string, label: string) => {
+    ReactGA.event({
+      category,
+      action,
+      label,
+    });
+  };
 
   return (
     <div className="App">
-      <h1>Hello using github actions, using secrets!</h1>
+      <button onClick={() => event("Users", "REGISTER", "TEST")}>Register</button>
+      <button onClick={() => event("Users", "LOGIN", "TEST")}>Login</button>
+      <button onClick={() => event("Users", "CLICK", "TEST")}>Click</button>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
