@@ -20,7 +20,7 @@ function App() {
 
     const onLoadEvent = async () => {
       await fetch(
-        `${ANALYTICS_SHEET_URL}?Category=Test&Action=page_visit&Label=visit`,
+        `${ANALYTICS_SHEET_URL}?Category=Users&Action=page_visit&Label=visit`,
         {
           method: "GET",
         }
@@ -28,6 +28,19 @@ function App() {
     };
     onLoadEvent();
   }, []);
+
+  const sendEventToSheet = async (
+    category: string,
+    action: string,
+    label: string
+  ) => {
+    await fetch(
+      `${ANALYTICS_SHEET_URL}?Category=${category}&Action=${action}&Label=${label}`,
+      {
+        method: "GET",
+      }
+    );
+  };
 
   const event = (category: string, action: string, label: string) => {
     ReactGA.event({
@@ -39,11 +52,23 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => event("Users", "REGISTER", "TEST")}>
+      <button
+        onClick={async () =>
+          await sendEventToSheet("Users", "register", "TEST")
+        }
+      >
         Register
       </button>
-      <button onClick={() => event("Users", "LOGIN", "TEST")}>Login</button>
-      <button onClick={() => event("Users", "CLICK", "TEST")}>Click</button>
+      <button
+        onClick={async () => await sendEventToSheet("Users", "login", "TEST")}
+      >
+        Login
+      </button>
+      <button
+        onClick={async () => await sendEventToSheet("Users", "click", "TEST")}
+      >
+        Click
+      </button>
     </div>
   );
 }
