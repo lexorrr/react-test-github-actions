@@ -8,7 +8,7 @@ function App() {
     ReactGA.initialize("UA-KF7V1HWCB0");
 
     ReactGA.send("pageview");
-    ReactGA.send({ hitType: "pageview", page: "/" });
+    // ReactGA.send({ hitType: "pageview", page: "/" });
 
     // ReactGA.pageview(window.location.pathname + window.location.search);
     
